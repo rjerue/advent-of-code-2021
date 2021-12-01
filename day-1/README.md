@@ -4,7 +4,9 @@ Problem: <https://adventofcode.com/2021/day/1>
 
 ## Usage
 
-node index.js input.txt
+node index.js input.txt 1
+
+One is the window size, in challenge 2, it's set to 3
 
 ## Why this way?
 
