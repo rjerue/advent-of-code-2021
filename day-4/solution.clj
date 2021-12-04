@@ -34,13 +34,13 @@
       (recur x (inc y) row))))
 
 (defn bingo-check
-  [answers]
-  (->> answers (sort-by first) (group-by first) (vals) (map count) (some #(= 5 %))))
+  [answers grouper]
+  (->> answers (group-by grouper) (vals) (map count) (some #(= 5 %))))
 
 (defn bingo-exists?
   [answers]
-  (or (bingo-check answers)
-      (bingo-check (map reverse answers))))
+  (or (bingo-check answers first)
+      (bingo-check answers second)))
 
 (defn bingo-solution
   [board answers]
