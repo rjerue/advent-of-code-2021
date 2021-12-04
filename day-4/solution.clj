@@ -65,7 +65,7 @@
         (let [target (nth inputs answer-index nil)
               found (finder target current-board)
               answers (cond-> (get answers-set board-index []) (some? found) (conj found))
-              bingo? (bingo-exists? (filter some? answers))]
+              bingo? (bingo-exists? answers)]
           (if bingo?
             (if (and choose-last? (< 1 (- (count game-boards) (count win-boards))))
               (recur
