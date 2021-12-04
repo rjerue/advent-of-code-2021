@@ -47,12 +47,11 @@
   (loop [n 0
          list base]
     (if (= 1 (count list))
-      list
+      (first list)
       (let [popular (nth (->> list (calc-frequencies) (map decider)) n)]
         (recur (+ n 1) (filter #(= popular (str (nth % n))) list))))))
 
 (->> [(life-support (digit-common "0" "1")) (life-support (digit-common "1" "0"))]
-     (map first)
      (map binary-str->number)
      (apply *)
      (println "Part 2"))
